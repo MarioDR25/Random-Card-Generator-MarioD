@@ -1,11 +1,27 @@
 import "bootstrap";
-import "./style.css";
 
+const carta = document.querySelector(".card");
+const boton = document.querySelector(".btn");
 
-import "./assets/img/rigo-baby.jpg";
-import "./assets/img/4geeks.ico";
+function cargarCarta() {
+  const numeroDeCarta = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "K", "Q", "J"];
+  const palos = ["♦", "♥", "♠", "♣"];
 
-window.onload = function() {
-  //write your code here
-  console.log("Hello Rigo from the console!");
-};
+  const generarPosicion = (limit) => Math.floor(Math.random() * limit);
+
+  let palo = palos[generarPosicion(3)];
+  let num = numeroDeCarta[generarPosicion(13)];
+
+  let colorTexto = palo === "♥" || palo === "♦" ? "text-danger" : "";
+
+  carta.innerHTML = `
+      <div class="row h-100 ">
+        <div class="col-3 align-self-start display-1 fw-bold ${colorTexto}">${palo}</div>
+        <div class="col-6 align-self-center display-1 fw-bold ${colorTexto}">${num}</div>
+        <div class="col-3 align-self-end display-1 fw-bold ${colorTexto}">${palo}</div>
+      </div>`;
+}
+
+window.onload = cargarCarta();
+boton.addEventListener("click", cargarCarta);
+setInterval(() => {cargarCarta()}, 10000);
