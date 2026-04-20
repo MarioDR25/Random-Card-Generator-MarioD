@@ -17,8 +17,8 @@ function cargarCarta() {
   carta.innerHTML = `
       <div class="row h-100 ">
         <div class="col-3 align-self-start display-1 fw-bold ${colorTexto}">${palo}</div>
-        <div class="col-6 align-self-center display-1 fw-bold ${colorTexto}">${num}</div>
-        <div class="col-3 align-self-end display-1 fw-bold ${colorTexto}">${palo}</div>
+        <div class="col-6 align-self-center display-1 fw-bold ${colorTexto} text-center">${num}</div>
+        <div class="col-3 align-self-end display-1 fw-bold ${colorTexto}" style="transform: rotate(180deg); display: inline-block;">${palo}</div>
       </div>`;
 }
 
